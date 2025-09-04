@@ -10,7 +10,7 @@ A Python tool for partitioning OMOP databases into SQL files for distributed Pos
 - **Patient-Centric Partitioning**: Distributes patient records and related data across partitions
 - **High Performance Export**: Supports bulk INSERT and COPY statements for fast data loading
 - **Command Line Interface**: Easy-to-use CLI with comprehensive options
-- **Health Check Utility**: Validates database connectivity and schema integrity
+- **Health Check Utility**: Validates Docker containers running loaded OMOP data
 - **Cleanup Tools**: Manages generated files and disk space
 
 ## 📋 Prerequisites
@@ -59,7 +59,23 @@ LOG_LEVEL=INFO
 
 ## 🚀 Usage
 
-### Command Reference
+### Command Line Interface
+
+```bash
+# Basic usage
+omop-partitioner
+
+# With custom parameters
+omop-partitioner --db-url postgresql://user:pass@host:port/db --partitions 4
+
+# Use COPY statements for maximum performance
+omop-partitioner --use-copy
+
+# Verbose output
+omop-partitioner --verbose
+```
+
+### Complete Command Reference
 
 ```bash
 # Basic usage with .env file
@@ -100,25 +116,6 @@ omop-partitioner --version
 | `--version` | Show version information | - |
 
 ## 🛠️ Additional Tools
-
-### Health Check
-```bash
-# Check database health
-omop-healthcheck
-
-# Check specific database
-omop-healthcheck --db-url postgresql://user:pass@host:port/db
-```
-
-### Cleanup
-```bash
-# List files to clean
-omop-cleanup --list
-
-# Clean up generated files
-omop-cleanup --confirm
-```
-
 ### Deployment Script
 ```bash
 # Deploy partitions to Docker containers
@@ -136,6 +133,38 @@ sql_exports/
 ├── partition_1_complete.sql      # Partition 1 (schema + data)
 └── partitioning_report.txt       # Summary report
 ```
+
+### Health Check
+```bash
+# Check single container
+omop-healthcheck --containers omop_partition_0
+
+# Check multiple containers
+omop-healthcheck --containers omop_partition_0 omop_partition_1
+
+# Check any number of containers
+omop-healthcheck --containers omop_partition_0 omop_partition_1 omop_partition_2 omop_partition_3
+
+# Check with custom database settings
+omop-healthcheck --containers omop_partition_0 omop_partition_1 --user postgres --db omop
+```
+
+**Health Check Validates:**
+- ✅ **Container Readiness**: PostgreSQL server accepting connections
+- ✅ **Schema Existence**: OMOP schema is present and accessible
+- ✅ **Table Count**: Required tables are present
+- ✅ **Data Integrity**: Sample data counts (concept, person tables)
+- ✅ **Replication Settings**: PostgreSQL replication role configuration
+
+### Cleanup
+```bash
+# List files to clean
+omop-cleanup --list
+
+# Clean up generated files
+omop-cleanup --confirm
+```
+
 
 ## 🔧 Troubleshooting
 

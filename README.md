@@ -59,23 +59,7 @@ LOG_LEVEL=INFO
 
 ## 🚀 Usage
 
-### Command Line Interface
-
-```bash
-# Basic usage
-omop-partitioner
-
-# With custom parameters
-omop-partitioner --db-url postgresql://user:pass@host:port/db --partitions 4
-
-# Use COPY statements for maximum performance
-omop-partitioner --use-copy
-
-# Verbose output
-omop-partitioner --verbose
-```
-
-### Complete Command Reference
+### Command Reference
 
 ```bash
 # Basic usage with .env file

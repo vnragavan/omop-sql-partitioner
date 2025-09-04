@@ -68,11 +68,6 @@ pip install -e .
 pip install .
 ```
 
-#### **Method 3: From PyPI (Future)**
-```bash
-# When published to PyPI
-pip install omop-partitioner
-```
 
 ### 🔧 Manual Setup (Alternative)
 

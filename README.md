@@ -121,16 +121,17 @@ sql_exports/
 ### Health Check
 ```bash
 # Check single container
-omop-healthcheck --containers omop_partition_0
+python omop_healthcheck.py --containers omop_partition_0
 
 # Check multiple containers
-omop-healthcheck --containers omop_partition_0 omop_partition_1
+python omop_healthcheck.py --containers omop_partition_0 omop_partition_1
 
 # Check any number of containers
-omop-healthcheck --containers omop_partition_0 omop_partition_1 omop_partition_2 omop_partition_3
+python omop_healthcheck.py --containers omop_partition_0 omop_partition_1 omop_partition_2 omop_partition_3
 
 # Check with custom database settings
-omop-healthcheck --containers omop_partition_0 omop_partition_1 --user postgres --db omop
+python omop_healthcheck.py --containers omop_partition_0 omop_partition_1 --user postgres --db omop
+
 ```
 
 **Health Check Validates:**
@@ -138,7 +139,7 @@ omop-healthcheck --containers omop_partition_0 omop_partition_1 --user postgres 
 - ✅ **Schema Existence**: OMOP schema is present and accessible
 - ✅ **Table Count**: Required tables are present
 - ✅ **Data Integrity**: Sample data counts (concept, person tables)
-- ✅ **Replication Settings**: PostgreSQL replication role configuration
+- ✅ **Vocabulary counts**: Ensures rows exist in key vocab tables: concept, vocabulary, domain, concept_class, relationship, concept_ancestor, concept_relationship, drug_strength
 
 ### Cleanup
 ```bash

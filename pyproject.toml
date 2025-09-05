@@ -9,10 +9,10 @@ description = "A comprehensive Python-based tool for partitioning OMOP databases
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
-    {name = "Narasimha Raghavan", email = "vnragavan@protonmail.com"},
+    {name = "Narasimha Raghavan", email = "vnragavan[at]protonmail.com"},
 ]
 maintainers = [
-    {name = "Narasimha Raghavan", email = "vnragavan@protonmail.com"},
+    {name = "Narasimha Raghavan", email = "vnragavan[at]protonmail.com"},
 ]
 keywords = ["omop", "database", "partitioning", "postgresql", "healthcare", "medical", "research"]
 classifiers = [

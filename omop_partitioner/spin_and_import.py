@@ -10,7 +10,8 @@
 #
 # Env overrides (optional):
 #   PG_IMAGE=postgres:17 DB_NAME=omop PG_USER=postgres START_PORT=5433 PASS_PREFIX=secret RECREATE=true
-#
+
+# Author: Narasimha Raghavan 
 import argparse
 import os
 import shlex

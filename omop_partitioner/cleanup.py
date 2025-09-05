@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """
 Cleanup utility for OMOP Partitioner generated files
+
+Author: Narasimha Raghavan
 """
 
 import os

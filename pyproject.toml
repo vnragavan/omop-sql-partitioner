@@ -9,10 +9,10 @@ description = "A comprehensive Python-based tool for partitioning OMOP databases
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
-    {name = "Narasimha Raghavan", email = "your-email@example.com"},
+    {name = "Narasimha Raghavan", email = "vnragavan@protonmail.com"},
 ]
 maintainers = [
-    {name = "Narasimha Raghavan", email = "your-email@example.com"},
+    {name = "Narasimha Raghavan", email = "vnragavan@protonmail.com"},
 ]
 keywords = ["omop", "database", "partitioning", "postgresql", "healthcare", "medical", "research"]
 classifiers = [
@@ -50,16 +50,13 @@ dev = [
 [project.scripts]
 omop-partitioner = "omop_partitioner.cli:main"
 omop-sql-partitioner = "omop_partitioner.sql_partitioner:main"
-omop-import-partitions = "omop_partitioner.import_partitions:main"
-omop-validate-partitions = "omop_partitioner.validate_partitions:main"
-omop-test-export = "omop_partitioner.test_sql_export:main"
 omop-cleanup = "omop_partitioner.cleanup:main"
 
 [project.urls]
-Homepage = "https://github.com/your-username/omop-partitioner"
-Documentation = "https://github.com/your-username/omop-partitioner#readme"
-Repository = "https://github.com/your-username/omop-partitioner"
-"Bug Tracker" = "https://github.com/your-username/omop-partitioner/issues"
+Homepage = "https://github.com/vnragavan/omop-partitioner"
+Documentation = "https://github.com/vnragavan/omop-partitioner#readme"
+Repository = "https://github.com/vnragavan/omop-partitioner"
+"Bug Tracker" = "https://github.com/vnragavan/omop-partitioner/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
